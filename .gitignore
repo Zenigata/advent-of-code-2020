@@ -1,4 +1,4 @@
 target/
-.settings2/
-.classpath2
-.vscode2/
+.settings/
+.classpath
+.vscode/

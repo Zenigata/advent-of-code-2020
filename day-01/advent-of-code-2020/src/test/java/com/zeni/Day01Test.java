@@ -13,14 +13,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class DayTest {
+public class Day01Test {
     @Test
     public void should_not_find_any_solution() {
         List<Integer> expenses = new ArrayList<>();
         expenses.add(500);
         expenses.add(1000);
 
-        int result = Day.multiply(2000, expenses);
+        int result = Day01.multiply(2000, expenses);
         assertEquals(0, result);
     }
 
@@ -30,7 +30,7 @@ public class DayTest {
         expenses.add(520);
         expenses.add(1500);
 
-        int result = Day.multiply(2020, expenses);
+        int result = Day01.multiply(2020, expenses);
         assertEquals(780000, result);
     }
 
@@ -44,7 +44,7 @@ public class DayTest {
         expenses.add(675);
         expenses.add(1456);
 
-        int result = Day.multiply(2020, expenses);
+        int result = Day01.multiply(2020, expenses);
         assertEquals(514579, result);
     }
 
@@ -252,7 +252,7 @@ public class DayTest {
         expenses.add(1809);
         expenses.add(1812);
 
-        int result = Day.multiply(2020, expenses);
+        int result = Day01.multiply(2020, expenses);
         assertEquals(1005459, result);
     }
 
@@ -266,7 +266,7 @@ public class DayTest {
         expenses.add(675);
         expenses.add(1456);
 
-        int result = Day.multiplyThree(2020, expenses);
+        int result = Day01.multiplyThree(2020, expenses);
         assertEquals(241861950, result);
     }
 
@@ -281,7 +281,7 @@ public class DayTest {
         for (String s : lines)
             expenses.add(Integer.valueOf(s));
 
-        int result = Day.multiplyThree(2020, expenses);
+        int result = Day01.multiplyThree(2020, expenses);
         assertEquals(92643264, result);
     }
 }

@@ -2,6 +2,12 @@ package com.zeni;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -251,7 +257,7 @@ public class DayTest {
     }
 
     @Test
-    public void should_find_a_not_so_basic_solutio() {
+    public void should_find_a_not_so_basic_solution_for_three() {
         List<Integer> expenses = new ArrayList<>();
         expenses.add(1721);
         expenses.add(979);
@@ -262,5 +268,20 @@ public class DayTest {
 
         int result = Day.multiplyThree(2020, expenses);
         assertEquals(241861950, result);
+    }
+
+    @Test
+    public void should_find_a_complex_solution_for_three() throws URISyntaxException, IOException {
+
+        URL url = Thread.currentThread().getContextClassLoader().getResource("day01/input.txt");
+        Path path = Paths.get(url.toURI());
+        List<String> lines = Files.readAllLines(path);
+
+        List<Integer> expenses = new ArrayList<>();
+        for (String s : lines)
+            expenses.add(Integer.valueOf(s));
+
+        int result = Day.multiplyThree(2020, expenses);
+        assertEquals(92643264, result);
     }
 }

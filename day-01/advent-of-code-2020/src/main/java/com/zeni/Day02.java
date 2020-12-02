@@ -1,8 +1,7 @@
 package com.zeni;
 
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
+import java.util.stream.Collectors;
 
 public class Day02 {
 
@@ -10,13 +9,8 @@ public class Day02 {
     if (policies.isEmpty()) {
       return 0;
     }
-    Policy policy = policies.get(0);
-    policy.getPassword();
-    int countMatches = StringUtils.countMatches(policy.getPassword(), policy.getCharacter());
-    if (countMatches >= policy.getMin() && countMatches <= policy.getMax()) {
-      return 1;
-    }
-    return 0;
+
+    return policies.stream().filter(Policy::isValid).collect(Collectors.toList()).size();
   }
 
 }

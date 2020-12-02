@@ -34,17 +34,36 @@ public class Day02Test {
         assertEquals(1, result);
     }
 
-    public void should_find_a_complex_solution_for_three() throws URISyntaxException, IOException {
+    @Test
+    public void should_find_a_basic_solution() {
+
+        List<Policy> policies = new ArrayList<>();
+        policies.add(new Policy(1, 3, "a", "abcde"));
+        policies.add(new Policy(1, 3, "b", "cdefg"));
+        policies.add(new Policy(2, 9, "c", "ccccccccc"));
+
+        int result = Day02.countValidPasswords(policies);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void should_find_a_complex_solution() throws URISyntaxException, IOException {
 
         URL url = Thread.currentThread().getContextClassLoader().getResource("day02/input.txt");
         Path path = Paths.get(url.toURI());
         List<String> lines = Files.readAllLines(path);
 
-        List<Integer> expenses = new ArrayList<>();
-        for (String s : lines)
-            expenses.add(Integer.valueOf(s));
+        List<Policy> policies = new ArrayList<>();
+        for (String s : lines) {
+            int min = Integer.valueOf(s.substring(0, s.indexOf("-")));
+            int max = Integer.valueOf(s.substring(s.indexOf("-") + 1, s.indexOf(" ")));
+            String character = s.substring(s.indexOf(" ") + 1, s.indexOf(" ") + 2);
+            String password = s.substring(s.indexOf(": ") + 2);
 
-        int result = Day01.multiplyThree(2020, expenses);
-        assertEquals(92643264, result);
+            policies.add(new Policy(min, max, character, password));
+        }
+
+        int result = Day02.countValidPasswords(policies);
+        assertEquals(500, result);
     }
 }

@@ -1,5 +1,7 @@
 package com.zeni;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Policy {
 
   private int min;
@@ -12,6 +14,11 @@ public class Policy {
     this.max = max;
     this.character = character;
     this.password = password;
+  }
+
+  boolean isValid() {
+    int countMatches = StringUtils.countMatches(password, character);
+    return countMatches >= min && countMatches <= max;
   }
 
   public int getMin() {

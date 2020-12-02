@@ -13,4 +13,12 @@ public class Day02 {
     return policies.stream().filter(Policy::isValid).collect(Collectors.toList()).size();
   }
 
+  public static int countValidPasswordsNewPolicy(List<Policy> policies) {
+    if (policies.isEmpty()) {
+      return 0;
+    }
+
+    return policies.stream().filter(Policy::isValidNewPolicy).collect(Collectors.toList()).size();
+  }
+
 }

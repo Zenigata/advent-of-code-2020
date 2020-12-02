@@ -21,6 +21,13 @@ public class Policy {
     return countMatches >= min && countMatches <= max;
   }
 
+  boolean isValidNewPolicy() {
+    String first = password.substring(min-1, min);
+    String second = password.substring(max-1, max);
+    return (character.equals(first) && !character.equals(second))
+        || (!character.equals(first) && character.equals(second));
+  }
+
   public int getMin() {
     return min;
   }

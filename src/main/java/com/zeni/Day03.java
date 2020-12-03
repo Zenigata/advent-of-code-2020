@@ -14,8 +14,8 @@ public class Day03 {
     int moveX = 3;
     int moveY = 1;
 
-    while (y + moveY < map[0].length) {
-      x = (x + moveX) % map.length;
+    while (y + moveY < map.length) {
+      x = (x + moveX) % map[0].length;
       y += moveY;
 
       if (map[y][x] == Square.Tree) {

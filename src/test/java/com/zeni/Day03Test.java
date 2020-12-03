@@ -52,4 +52,21 @@ public class Day03Test {
         int result = Day03.countTreesMet(map);
         assertEquals(2, result);
     }
+
+    @Test
+    public void should_find_a_complex_solution_new_policy() throws URISyntaxException, IOException {
+        URL url = Thread.currentThread().getContextClassLoader().getResource("day03/input.txt");
+        Path path = Paths.get(url.toURI());
+        List<String> lines = Files.readAllLines(path);
+
+        Square[][] map = new Square[11][11];
+        for (int i = 0; i < lines.size(); i++) {
+            for (int j = 0; j < lines.get(i).length(); j++) {
+                map[i][j] = Square.get(lines.get(i).charAt(j));
+            }
+        }
+
+        int result = Day03.countTreesMet(map);
+        assertEquals(7, result);
+    }
 }

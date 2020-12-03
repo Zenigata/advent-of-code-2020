@@ -11,18 +11,14 @@ public class Day03 {
 
     int treeCount = 0;
 
-    if (map[x][y] == Square.Tree) {
-      treeCount++;
-    }
-
     int moveX = 3;
     int moveY = 1;
 
-    while (x + moveX <= map.length && y + moveY <= map[0].length) {
-      x += moveX;
+    while (y + moveY < map[0].length) {
+      x = (x + moveX) % map.length;
       y += moveY;
 
-      if (map[x][y] == Square.Tree) {
+      if (map[y][x] == Square.Tree) {
         treeCount++;
       }
     }

@@ -1,4 +1,4 @@
-package com.zeni;
+package com.zeni.day03;
 
 public enum Square {
   Tree('#'), Open('.');

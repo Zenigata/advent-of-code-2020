@@ -1,4 +1,4 @@
-package com.zeni;
+package com.zeni.day02;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zeni.day02.Day02;
+import com.zeni.day02.Policy;
+
 import org.junit.Test;
 
 public class Day02Test {

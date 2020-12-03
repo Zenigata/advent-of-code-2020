@@ -1,4 +1,4 @@
-package com.zeni;
+package com.zeni.day02;
 
 import org.apache.commons.lang3.StringUtils;
 

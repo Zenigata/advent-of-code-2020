@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zeni.day01.Day01;
+
 import org.junit.Test;
 
 public class Day01Test {

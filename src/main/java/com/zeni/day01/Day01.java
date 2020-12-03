@@ -1,4 +1,4 @@
-package com.zeni;
+package com.zeni.day01;
 
 import java.util.List;
 

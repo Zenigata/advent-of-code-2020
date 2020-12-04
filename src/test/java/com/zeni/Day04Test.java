@@ -26,6 +26,22 @@ public class Day04Test {
         assertEquals(1, result);
     }
 
+    @Test
+    public void should_valid_more_passwords() throws URISyntaxException, IOException {
+        PassportScanner scanner = new PassportScanner();
+
+        int result = scanner.countValid(getPasswordsFrom("day04/basic.txt"));
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void should_valid_a_lot_of_passwords() throws URISyntaxException, IOException {
+        PassportScanner scanner = new PassportScanner();
+
+        int result = scanner.countValid(getPasswordsFrom("day04/input.txt"));
+        assertEquals(204, result);
+    }
+
     private List<Passport> getPasswordsFrom(String filePath) throws URISyntaxException, IOException {
         URL url = Thread.currentThread().getContextClassLoader().getResource(filePath);
         Path path = Paths.get(url.toURI());

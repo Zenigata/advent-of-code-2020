@@ -42,6 +42,22 @@ public class Day04Test {
         assertEquals(204, result);
     }
 
+    @Test
+    public void should_valid_strictly_more_passwords() throws URISyntaxException, IOException {
+        PassportScanner scanner = new PassportScanner();
+
+        int result = scanner.countStrictlyValid(getPasswordsFrom("day04/strict.txt"));
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void should_valid_strictly_a_lot_of_passwords() throws URISyntaxException, IOException {
+        PassportScanner scanner = new PassportScanner();
+
+        int result = scanner.countStrictlyValid(getPasswordsFrom("day04/input.txt"));
+        assertEquals(179, result);
+    }
+
     private List<Passport> getPasswordsFrom(String filePath) throws URISyntaxException, IOException {
         URL url = Thread.currentThread().getContextClassLoader().getResource(filePath);
         Path path = Paths.get(url.toURI());

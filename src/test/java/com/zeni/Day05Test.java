@@ -19,7 +19,6 @@ public class Day05Test {
     @Test
     public void should_only_find_the_row() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getRowNumber("FBFBBFF");
         assertEquals(44, result);
     }
@@ -27,7 +26,6 @@ public class Day05Test {
     @Test
     public void should_only_find_the_column() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getColumnNumber("RLR");
         assertEquals(5, result);
     }
@@ -35,7 +33,6 @@ public class Day05Test {
     @Test
     public void should_find_the_seat_ID() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getSeatID("FBFBBFFRLR");
         assertEquals(357, result);
     }
@@ -43,7 +40,6 @@ public class Day05Test {
     @Test
     public void should_find_another_seat_ID() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getSeatID("BFFFBBFRRR");
         assertEquals(567, result);
     }
@@ -51,7 +47,6 @@ public class Day05Test {
     @Test
     public void should_find_another_seat_ID_again() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getSeatID("FFFBBBFRRR");
         assertEquals(119, result);
     }
@@ -59,7 +54,6 @@ public class Day05Test {
     @Test
     public void should_find_another_seat_ID_ever_again() {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.getSeatID("BBFFBBFRLL");
         assertEquals(820, result);
     }
@@ -67,9 +61,17 @@ public class Day05Test {
     @Test
     public void should_find_the_highest_seat_ID() throws URISyntaxException, IOException {
         BinaryBoarding binaryBoarding = new BinaryBoarding();
-
         int result = binaryBoarding.findTheHighestSeatIDIn(getBoardingPasses("day05/input.txt"));
         assertEquals(858, result);
+    }
+
+    @Test
+    public void should_find_the_missing_seat_ID() throws URISyntaxException, IOException {
+        BinaryBoarding binaryBoarding = new BinaryBoarding();
+        List<String> boardingPasses = getBoardingPasses("day05/input.txt");
+
+        int result = binaryBoarding.findTheMissingSeatIDIn(boardingPasses);
+        assertEquals(557, result);
     }
 
     private List<String> getBoardingPasses(String filePath) throws URISyntaxException, IOException {

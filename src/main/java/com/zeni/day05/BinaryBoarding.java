@@ -26,8 +26,22 @@ public class BinaryBoarding {
     return getRowNumber(source.substring(0, 7)) * 8 + getColumnNumber(source.substring(7));
   }
 
-  public int findTheHighestSeatIDIn(List<String> sourceList) {
-    return sourceList.stream().map(s -> getSeatID(s)).max(Integer::compare).get();
+  public int findTheHighestSeatIDIn(List<String> boardingPasses) {
+    return boardingPasses.stream().map(s -> getSeatID(s)).max(Integer::compare).get();
+  }
+
+  public int findTheLowestSeatIDIn(List<String> boardingPasses) {
+    return boardingPasses.stream().map(s -> getSeatID(s)).min(Integer::compare).get();
+  }
+
+  public int findTheMissingSeatIDIn(List<String> boardingPasses) {
+    int total = (boardingPasses.size() + 1)
+        * (findTheLowestSeatIDIn(boardingPasses) + findTheHighestSeatIDIn(boardingPasses)) / 2;
+
+    for (String string : boardingPasses) {
+      total -= getSeatID(string);
+    }
+    return total;
   }
 
 }

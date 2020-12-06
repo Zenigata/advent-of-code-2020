@@ -60,6 +60,26 @@ public class Day06Test {
         assertEquals(6714, result);
     }
 
+    @Test
+    public void should_count_full_answers_from_multiple_groups() throws URISyntaxException, IOException {
+        CustomDeclaration declaration = new CustomDeclaration();
+
+        List<String> answers = getFilledForms("day06/basic.txt");
+
+        int result = declaration.countFullPositiveAnswers(answers);
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void should_count_full_answers_from_all_groups() throws URISyntaxException, IOException {
+        CustomDeclaration declaration = new CustomDeclaration();
+
+        List<String> answers = getFilledForms("day06/input.txt");
+
+        int result = declaration.countFullPositiveAnswers(answers);
+        assertEquals(3435, result);
+    }
+
     private List<String> getFilledForms(String filePath) throws URISyntaxException, IOException {
         URL url = Thread.currentThread().getContextClassLoader().getResource(filePath);
         Path path = Paths.get(url.toURI());

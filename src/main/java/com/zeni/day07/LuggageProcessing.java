@@ -5,20 +5,20 @@ import java.util.Map;
 
 public class LuggageProcessing {
 
-  private Map<BagType, List<LuggageRule>> luggageRules;
+  private Map<String, List<LuggageRule>> luggageRules;
 
-  public LuggageProcessing(Map<BagType, List<LuggageRule>> luggageRules) {
+  public LuggageProcessing(Map<String, List<LuggageRule>> luggageRules) {
     this.luggageRules = luggageRules;
   }
 
-  public long findUniqueContainersFor(BagType typeToFind) {
+  public long findUniqueContainersFor(String typeToFind) {
     return luggageRules.values().stream().mapToInt(r -> hasBagType(r, typeToFind)).sum();
   }
 
-  int hasBagType(List<LuggageRule> rules, BagType typeToFind) {
+  int hasBagType(List<LuggageRule> rules, String typeToFind) {
     if (rules.size() != 0) {
       for (LuggageRule child : rules) {
-        if (child.getCurrentType() == typeToFind) {
+        if (typeToFind.equals(child.getCurrentType())) {
           return 1;
         } else {
           return hasBagType(luggageRules.get(child.getCurrentType()), typeToFind);

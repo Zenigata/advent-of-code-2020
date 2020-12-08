@@ -4,10 +4,10 @@ import java.util.List;
 
 public class LuggageRule {
 
-  private BagType currentType;
+  private String currentType;
   private List<LuggageRule> children;
 
-  public LuggageRule(BagType currentType, List<LuggageRule> children) {
+  public LuggageRule(String currentType, List<LuggageRule> children) {
     this.currentType = currentType;
     this.children = children;
   }
@@ -20,11 +20,11 @@ public class LuggageRule {
     this.children = children;
   }
 
-  public BagType getCurrentType() {
+  public String getCurrentType() {
     return currentType;
   }
 
-  public void setCurrentType(BagType currentType) {
+  public void setCurrentType(String currentType) {
     this.currentType = currentType;
   }
 

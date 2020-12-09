@@ -1,5 +1,6 @@
 package com.zeni.day09;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,5 +31,30 @@ public class Xmas {
       }
     }
     return possibilities;
+  }
+
+  public long findTheEncryptionWeakness(int preambleSize, List<Long> numbers) {
+    long error = findAnErrorIn(preambleSize, numbers);
+
+    Set<Long> contiguousNumbers = findTheContiguousNumbers(error, numbers);
+    return Collections.min(contiguousNumbers) + Collections.max(contiguousNumbers);
+  }
+
+  private Set<Long> findTheContiguousNumbers(long error, List<Long> numbers) {
+    Set<Long> contiguousNumbers = new HashSet<>();
+
+    for (int i = 0; i < numbers.size() - 1; i++) {
+      contiguousNumbers = new HashSet<>();
+      long total = 0;
+      for (int j = 0; total < error; j++) {
+        contiguousNumbers.add(numbers.get(i + j));
+        total += numbers.get(i + j);
+      }
+      if (total == error) {
+        return contiguousNumbers;
+      }
+    }
+
+    return contiguousNumbers;
   }
 }

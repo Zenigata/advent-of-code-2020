@@ -69,7 +69,7 @@ public class Day09Test {
     }
 
     @Test
-    public void should_find_an_error_with_a_basic_sheet() throws URISyntaxException, IOException {
+    public void should_find_an_error_with_a_basic_input() throws URISyntaxException, IOException {
         Xmas xmas = new Xmas();
 
         List<Long> numbers = getInput("day09/basic.txt");
@@ -79,13 +79,33 @@ public class Day09Test {
     }
 
     @Test
-    public void should_find_an_error_with_a_complex_sheet() throws URISyntaxException, IOException {
+    public void should_find_an_error_with_a_complex_input() throws URISyntaxException, IOException {
         Xmas xmas = new Xmas();
 
         List<Long> numbers = getInput("day09/input.txt");
         long result = xmas.findAnErrorIn(25, numbers);
 
         assertEquals(26134589l, result);
+    }
+
+    @Test
+    public void should_find_the_weakness_with_a_basic_input() throws URISyntaxException, IOException {
+        Xmas xmas = new Xmas();
+
+        List<Long> numbers = getInput("day09/basic.txt");
+        long result = xmas.findTheEncryptionWeakness(5, numbers);
+
+        assertEquals(62l, result);
+    }
+
+    @Test
+    public void should_find_the_weakness_with_a_complex_input() throws URISyntaxException, IOException {
+        Xmas xmas = new Xmas();
+
+        List<Long> numbers = getInput("day09/input.txt");
+        long result = xmas.findTheEncryptionWeakness(25, numbers);
+
+        assertEquals(3535124l, result);
     }
 
     private List<Long> getInput(String filePath) throws URISyntaxException, IOException {

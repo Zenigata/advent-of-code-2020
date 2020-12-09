@@ -23,7 +23,7 @@ public class Day08Test {
     public void should_have_no_loop() throws URISyntaxException, IOException {
         BootCode bootCode = new BootCode();
 
-        int result = bootCode.showAccumulatorValueWhenLoopStartsAgain(getInput("day08/simple.txt"));
+        int result = bootCode.showTheAccumulatorValueWhenLoopStartsAgain(getInput("day08/simple.txt"));
         assertEquals(0, result);
     }
 
@@ -31,7 +31,7 @@ public class Day08Test {
     public void should_have_a_small_loop() throws URISyntaxException, IOException {
         BootCode bootCode = new BootCode();
 
-        int result = bootCode.showAccumulatorValueWhenLoopStartsAgain(getInput("day08/basic.txt"));
+        int result = bootCode.showTheAccumulatorValueWhenLoopStartsAgain(getInput("day08/basic.txt"));
         assertEquals(5, result);
     }
 
@@ -39,8 +39,24 @@ public class Day08Test {
     public void should_have_a_big_loop() throws URISyntaxException, IOException {
         BootCode bootCode = new BootCode();
 
-        int result = bootCode.showAccumulatorValueWhenLoopStartsAgain(getInput("day08/input.txt"));
+        int result = bootCode.showTheAccumulatorValueWhenLoopStartsAgain(getInput("day08/input.txt"));
         assertEquals(1087, result);
+    }
+
+    @Test
+    public void should_fix_the_small_loop() throws URISyntaxException, IOException {
+        BootCode bootCode = new BootCode();
+
+        int result = bootCode.showTheFinalAccumulatorValue(getInput("day08/basic.txt"));
+        assertEquals(8, result);
+    }
+
+    @Test
+    public void should_fix_the_big_loop() throws URISyntaxException, IOException {
+        BootCode bootCode = new BootCode();
+
+        int result = bootCode.showTheFinalAccumulatorValue(getInput("day08/input.txt"));
+        assertEquals(780, result);
     }
 
     private List<Instruction> getInput(String filePath) throws URISyntaxException, IOException {

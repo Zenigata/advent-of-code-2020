@@ -118,6 +118,24 @@ public class Day11Test {
         assertEquals(2251, result);
     }
 
+    @Test
+    public void should_do_the_basic_input_part_2() throws URISyntaxException, IOException {
+        SeatingSystem seatingSystem = new SeatingSystem(getInput("day11/basic.txt"));
+
+        long result = seatingSystem.getTheFinalOccupiedSeatCountPart2();
+
+        assertEquals(26, result);
+    }
+
+    @Test
+    public void should_do_the_complex_input_part_2() throws URISyntaxException, IOException {
+        SeatingSystem seatingSystem = new SeatingSystem(getInput("day11/input.txt"));
+
+        long result = seatingSystem.getTheFinalOccupiedSeatCountPart2();
+
+        assertEquals(2019, result);
+    }
+
     private Position[][] getInput(String filePath) throws URISyntaxException, IOException {
         URL url = Thread.currentThread().getContextClassLoader().getResource(filePath);
         Path path = Paths.get(url.toURI());

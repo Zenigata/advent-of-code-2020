@@ -21,7 +21,7 @@ import org.junit.Test;
 public class Day12Test {
 
     @Test
-    public void should_do_the_complex_input_par() throws URISyntaxException, IOException {
+    public void should_do_one_instruction_east() throws URISyntaxException, IOException {
         Ferry ferry = new Ferry();
         long result = ferry.getManhattanDistanceAfterMoving(getInput("day12/one-east.txt"));
 
@@ -29,7 +29,7 @@ public class Day12Test {
     }
 
     @Test
-    public void should_do_the_complex_input_pa() throws URISyntaxException, IOException {
+    public void should_do_one_instruction_north() throws URISyntaxException, IOException {
         Ferry ferry = new Ferry();
         long result = ferry.getManhattanDistanceAfterMoving(getInput("day12/one-north.txt"));
 
@@ -37,7 +37,7 @@ public class Day12Test {
     }
 
     @Test
-    public void should_do_the_complex_input_p() throws URISyntaxException, IOException {
+    public void should_do_the_basic_input() throws URISyntaxException, IOException {
         Ferry ferry = new Ferry();
         long result = ferry.getManhattanDistanceAfterMoving(getInput("day12/basic.txt"));
 
@@ -45,7 +45,7 @@ public class Day12Test {
     }
 
     @Test
-    public void should_do_the_complex_input_() throws URISyntaxException, IOException {
+    public void should_do_the_complex_input() throws URISyntaxException, IOException {
         Ferry ferry = new Ferry();
         long result = ferry.getManhattanDistanceAfterMoving(getInput("day12/input.txt"));
 
@@ -53,11 +53,19 @@ public class Day12Test {
     }
 
     @Test
-    public void should_do_the_complex_input() throws URISyntaxException, IOException {
+    public void should_do_the_basic_input_with_waypoint() throws URISyntaxException, IOException {
         Ferry ferry = new Ferry();
         long result = ferry.getManhattanDistanceAfterMoving(new Coordinates(10, -1), getInput("day12/basic.txt"));
 
         assertEquals(286, result);
+    }
+
+    @Test
+    public void should_do_the_complex_input_with_waypoint() throws URISyntaxException, IOException {
+        Ferry ferry = new Ferry();
+        long result = ferry.getManhattanDistanceAfterMoving(new Coordinates(10, -1), getInput("day12/input.txt"));
+
+        assertEquals(59435, result);
     }
 
     private List<NavigationInstruction> getInput(String filePath) throws URISyntaxException, IOException {

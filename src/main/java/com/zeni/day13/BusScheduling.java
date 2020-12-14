@@ -5,9 +5,9 @@ import java.util.List;
 public class BusScheduling {
 
   private long departureTime;
-  private List<Integer> busSchedules;
+  private List<BusSchedule> busSchedules;
 
-  public BusScheduling(long departureTime, List<Integer> busSchedules) {
+  public BusScheduling(long departureTime, List<BusSchedule> busSchedules) {
     this.departureTime = departureTime;
     this.busSchedules = busSchedules;
   }
@@ -20,11 +20,11 @@ public class BusScheduling {
     this.departureTime = departureTime;
   }
 
-  public List<Integer> getBusSchedules() {
+  public List<BusSchedule> getBusSchedules() {
     return busSchedules;
   }
 
-  public void setBusSchedules(List<Integer> busSchedules) {
+  public void setBusSchedules(List<BusSchedule> busSchedules) {
     this.busSchedules = busSchedules;
   }
 

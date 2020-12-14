@@ -2,19 +2,19 @@ package com.zeni.day13;
 
 public class DepartureTimeAndBus {
 
-  private int bus;
+  private long bus;
   private long busStopTime;
 
-  public DepartureTimeAndBus(int bus, long busStopTime) {
+  public DepartureTimeAndBus(long bus, long busStopTime) {
     this.bus = bus;
     this.busStopTime = busStopTime;
   }
 
-  public int getBus() {
+  public long getBus() {
     return bus;
   }
 
-  public void setBus(int bus) {
+  public void setBus(long bus) {
     this.bus = bus;
   }
 

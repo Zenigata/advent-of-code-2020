@@ -9,9 +9,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import com.zeni.day14.BitmaskSystem;
 import com.zeni.day14.InitializingProgram;
@@ -42,7 +44,7 @@ public class Day14Test {
         BitmaskSystem bitmaskSystem = new BitmaskSystem();
         long result = bitmaskSystem.getValueInMemoryAfterLoading(getInput("day14/input.txt"));
 
-        assertEquals(8565322287045l, result);
+        assertEquals(17481577045893l, result);
     }
 
     private InitializingProgram getInput(String filePath) throws URISyntaxException, IOException {
@@ -50,7 +52,7 @@ public class Day14Test {
         Path path = Paths.get(url.toURI());
 
         List<String> lines = Files.readAllLines(path);
-        Map<String, List<MemoryValue>> program = new HashMap<>();
+        Map<String, List<MemoryValue>> program = new LinkedHashMap<>();
         String bitmask = lines.get(0).substring(7);
 
         List<MemoryValue> values = new ArrayList<>();
@@ -58,6 +60,7 @@ public class Day14Test {
             String line = lines.get(i);
             if (line.startsWith("mask")) {
                 program.put(bitmask, values);
+                values = new ArrayList<>();
                 bitmask = line.substring(7);
             } else {
                 MemoryValue value = new MemoryValue(Integer.parseInt(line.substring(4, line.indexOf("]"))),
@@ -67,6 +70,7 @@ public class Day14Test {
         }
         program.put(bitmask, values);
 
+        System.out.println(program.keySet().size());
         return new InitializingProgram(program);
     }
 }

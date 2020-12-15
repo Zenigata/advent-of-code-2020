@@ -9,11 +9,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import com.zeni.day14.BitmaskSystem;
 import com.zeni.day14.InitializingProgram;
@@ -45,6 +44,22 @@ public class Day14Test {
         long result = bitmaskSystem.getValueInMemoryAfterLoading(getInput("day14/input.txt"));
 
         assertEquals(17481577045893l, result);
+    }
+
+    @Test
+    public void should_do_the_complex_in() {
+        BitmaskSystem bitmaskSystem = new BitmaskSystem();
+        List<String> result = bitmaskSystem.multiplies("10101X", Arrays.asList(1));
+
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void should_do_the_easy_input_part_2() throws URISyntaxException, IOException {
+        BitmaskSystem bitmaskSystem = new BitmaskSystem();
+        long result = bitmaskSystem.getValueInMemoryAfterLoading2(getInput("day14/easy2.txt"));
+
+        assertEquals(208, result);
     }
 
     private InitializingProgram getInput(String filePath) throws URISyntaxException, IOException {
